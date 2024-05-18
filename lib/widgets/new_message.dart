@@ -17,6 +17,22 @@ class _NewMessageState extends State<NewMessage> {
     _messageController.dispose();
     super.dispose();
   }
+
+  void _submitMessage(){
+    final enteredMessage = _messageController.text;
+
+    if(enteredMessage.trim().isEmpty){
+      ScaffoldMessenger.of(context).clearSnackBars();
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Write something first!'),),);
+      return;
+    }
+
+    // send the message to firebase
+
+    //delete the sent message to send another one
+    _messageController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -39,7 +55,7 @@ class _NewMessageState extends State<NewMessage> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: _submitMessage,
             icon: const Icon(Icons.send),
             color: Theme.of(context).colorScheme.primary,
           ),
