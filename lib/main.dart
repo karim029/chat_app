@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Chat',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 54, 1, 167),
+          seedColor:const Color.fromARGB(255, 95, 30, 235),
         ),
         useMaterial3: true,
       ),
